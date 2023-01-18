@@ -29,7 +29,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // Routing untuk Santri
-    Route::get('/santri', [SantriController::class, 'index'])->name('santri.index');
+    // Route::get('/santri', [SantriController::class, 'index'])->name('santri.index');
+    // Route::get('/santri/create', [SantriController::class, 'create'])->name('santri.create');
+    // Route::post('/santri/create', [SantriController::class, 'store'])->name('santri.store');
+    // Route::get('/santri/{id}', [SantriController::class, 'show'])->name('santri.show');
+    // Route::get('/santri/{id}/edit', [SantriController::class, 'edit'])->name('santri.edit');
+    // Route::put('/santri/{id}/edit', [SantriController::class, 'update'])->name('santri.update');
+    // Route::delete('/santri/{id}', [SantriController::class, 'destroy'])->name('santri.destroy');
+
+
+    // Resource Routes
+    Route::resource('santri', SantriController::class);
 });
 
 /**

@@ -26,7 +26,8 @@ class SantriController extends Controller
      */
     public function create()
     {
-        //
+        // untuk menampilkan view dari form untuk tambah data
+        return view('santri.create');
     }
 
     /**
@@ -35,9 +36,18 @@ class SantriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) // $_POST[]
     {
-        //
+        // logic untuk tambah data
+        Santri::create([
+            'user_id'   => 1,
+            'nisn'      => $request->nisn,
+            'nik'       => $request->nik,
+            'ttl'       => $request->ttl,
+            'alamat'    => $request->alamat
+        ]);
+
+        return redirect()->route('santri.index');
     }
 
     /**
@@ -48,7 +58,10 @@ class SantriController extends Controller
      */
     public function show($id)
     {
-        //
+        // untuk single data
+        $santri = Santri::find($id);
+
+        return view('santri.show', compact('santri'));
     }
 
     /**
@@ -59,7 +72,9 @@ class SantriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $santri = Santri::find($id);
+
+        return view('santri.edit', compact('santri'));
     }
 
     /**
@@ -71,7 +86,24 @@ class SantriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $santri = Santri::find($id);
+
+        $santri->nisn   = $request->nisn;
+        $santri->nik   = $request->nik;
+        $santri->ttl   = $request->ttl;
+        $santri->alamat   = $request->alamat;
+
+        $santri->save();
+
+        return redirect()->route('santri.index');
+
+        // Santri::create([
+        //     'user_id'   => 1,
+        //     'nisn'      => $request->nisn,
+        //     'nik'       => $request->nik,
+        //     'ttl'       => $request->ttl,
+        //     'alamat'    => $request->alamat
+        // ]);
     }
 
     /**
@@ -82,6 +114,9 @@ class SantriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $santri = Santri::find($id);
+        $santri->delete();
+
+        return redirect()->route('santri.index');
     }
 }
