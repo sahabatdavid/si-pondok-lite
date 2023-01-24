@@ -119,4 +119,9 @@ class SantriController extends Controller
 
         return redirect()->route('santri.index');
     }
+
+    public function santri_logged_in()
+    {
+        $santri = Santri::where('id', Auth::id)->first();
+    }
 }

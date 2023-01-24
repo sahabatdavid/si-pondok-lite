@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SantriController;
+use App\Http\Controllers\AsramaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
     // Resource Routes
     Route::resource('santri', SantriController::class);
+    Route::resource('asrama', AsramaController::class);
 });
 
 /**

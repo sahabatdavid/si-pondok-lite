@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('santris', function (Blueprint $table) {
+        Schema::create('asramas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
-            $table->string('nisn')->unique();
-            $table->string('nik')->unique();
-            $table->text('ttl');
-            $table->longText('alamat');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('santris');
+        Schema::dropIfExists('asramas');
     }
 };

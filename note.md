@@ -8,6 +8,7 @@
     - password
 
 2. Santri
+    - id
     - user_id (foreign_key)
     - asrama_id
     - NISN
@@ -16,4 +17,5 @@
     - Alamat
 
 3. Asrama
+    - id
     - nama

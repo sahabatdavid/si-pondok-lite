@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Santri extends Model
+class Asrama extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id', 'nisn', 'nik', 'ttl', 'alamat'
-    ];
+    protected $fillable = ['nama'];
 }
