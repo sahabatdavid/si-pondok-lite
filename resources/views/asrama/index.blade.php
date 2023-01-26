@@ -18,11 +18,13 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 
             <div class="p-6 text-gray-900">
+                <div class="text-lg mb-4 flex justify-end">Total Santri : {{ $total_santri }}</div>
                 @foreach ( $asramas as $asrama )
                     <div class="flex justify-between">
                         <div class="flex justify-start">
                             <a href="{{ route('asrama.show', $asrama->id) }}">
                                 <p>Asrama : <?= $asrama->nama ?></p>
+                                <p>Jumlah Santri : {{ count($asrama->santris) }}</p>
                             </a>
                         </div>
 
@@ -41,7 +43,7 @@
                             </form>
                         </div>
                     </div>
-                  @endforeach  
+                  @endforeach
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Santri;
+use App\Models\User;
 
 class SantriController extends Controller
 {
@@ -15,7 +16,7 @@ class SantriController extends Controller
     public function index()
     {
         // untuk menampilkan semua data
-        $santris = Santri::all();
+        $santris = Santri::with('user')->with('asrama')->get();
         return view('santri.index', compact('santris'));
     }
 
@@ -118,10 +119,5 @@ class SantriController extends Controller
         $santri->delete();
 
         return redirect()->route('santri.index');
-    }
-
-    public function santri_logged_in()
-    {
-        $santri = Santri::where('id', Auth::id)->first();
     }
 }

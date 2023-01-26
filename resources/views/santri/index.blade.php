@@ -22,10 +22,12 @@
                     <div class="flex justify-between">
                         <div class="flex justify-start">
                             <a href="{{ route('santri.show', $santri->id) }}">
-                                <p>NISN : <?= $santri->nisn ?></p>
-                                <p>NIK : <?= $santri->nik ?></p>
-                                <p>TTL : <?= $santri->ttl ?></p>
-                                <p>Alamat : <?= $santri->alamat ?></p>
+                                <p>Nama : {{ $santri->user->name }}</p>
+                                <p>NISN : {{ $santri->nisn }}</p>
+                                <p>NIK : {{ $santri->nik }}</p>
+                                <p>TTL : {{ $santri->ttl }}</p>
+                                <p>Alamat : {{ $santri->alamat }}</p>
+                                <p>Asrama : {{ $santri->asrama->nama }}</p>
                             </a>
                         </div>
 
@@ -44,6 +46,7 @@
                             </form>
                         </div>
                     </div>
+                    <br>
                   @endforeach  
                 </div>
             </div>

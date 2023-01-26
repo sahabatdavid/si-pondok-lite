@@ -14,8 +14,12 @@ class AsramaController extends Controller
      */
     public function index()
     {
-        $asramas = Asrama::all();
-        return view('asrama.index', compact('asramas'));
+        $asramas = Asrama::with('santris')->get();
+        $total_santri = Asrama::with('santris')->count();
+        return view('asrama.index', [
+            'asramas'   => $asramas,
+            'total_santri'  => $total_santri
+        ]);
     }
 
     /**
